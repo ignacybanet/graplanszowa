@@ -1,0 +1,14 @@
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.GeneratedMSBuildEditorConfig.editorconfig
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.AssemblyInfoInputs.cache
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.AssemblyInfo.cs
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.csproj.CoreCompileInputs.cache
+/home/ignacy/Documents/C#/graplanszowa/bin/Debug/net8.0/graplanszowa
+/home/ignacy/Documents/C#/graplanszowa/bin/Debug/net8.0/graplanszowa.deps.json
+/home/ignacy/Documents/C#/graplanszowa/bin/Debug/net8.0/graplanszowa.runtimeconfig.json
+/home/ignacy/Documents/C#/graplanszowa/bin/Debug/net8.0/graplanszowa.dll
+/home/ignacy/Documents/C#/graplanszowa/bin/Debug/net8.0/graplanszowa.pdb
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.dll
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/refint/graplanszowa.dll
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.pdb
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.genruntimeconfig.cache
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/ref/graplanszowa.dll
