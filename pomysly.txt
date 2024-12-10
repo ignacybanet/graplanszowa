@@ -1,0 +1,8 @@
+1.
+zaimplementowac slownik dla roznych typow pol. kazdy numer pola ma podany swoj typ w tym slowniku, bedzie on generowany przy kazdym uruchomieniu programu 
+typy pol:
+    - boost (+3 pozycja) int
+    - debuff (-5 pozycja) int
+    - score (+1 score) int
+    - multiScore (2x score for 3 rounds) - int, dopoki jest wieksze niz 0, gracz dostaje podwojne punkty. Trzeba zrobic zmienna HasPointsMultiplierActive. czy cos idk. musi byc rzadkie!!
+
