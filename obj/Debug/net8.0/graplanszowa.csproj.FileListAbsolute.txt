@@ -12,3 +12,4 @@
 /home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.pdb
 /home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.genruntimeconfig.cache
 /home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/ref/graplanszowa.dll
+/home/ignacy/Documents/C#/graplanszowa/obj/Debug/net8.0/graplanszowa.sourcelink.json
