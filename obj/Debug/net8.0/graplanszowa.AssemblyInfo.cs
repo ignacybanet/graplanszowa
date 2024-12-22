@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("graplanszowa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2a4621b7d36d9a6561cd8cb382c5d85b4289f96")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4456fee25cfd900dd77ac0826029c4769ebc77e")]
 [assembly: System.Reflection.AssemblyProductAttribute("graplanszowa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("graplanszowa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

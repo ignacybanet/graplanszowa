@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/home/ignacy/.nuget/packages/": {}
+    "C:\\Users\\gramw\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ignacy/Documents/C#/graplanszowa/graplanszowa.csproj",
+      "projectUniqueName": "C:\\Users\\gramw\\OneDrive\\Pulpit\\wszystko\\szkola\\c#\\ciezszeZadania\\graplanszowa\\graplanszowa.csproj",
       "projectName": "graplanszowa",
-      "projectPath": "/home/ignacy/Documents/C#/graplanszowa/graplanszowa.csproj",
-      "packagesPath": "/home/ignacy/.nuget/packages/",
-      "outputPath": "/home/ignacy/Documents/C#/graplanszowa/obj/",
+      "projectPath": "C:\\Users\\gramw\\OneDrive\\Pulpit\\wszystko\\szkola\\c#\\ciezszeZadania\\graplanszowa\\graplanszowa.csproj",
+      "packagesPath": "C:\\Users\\gramw\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gramw\\OneDrive\\Pulpit\\wszystko\\szkola\\c#\\ciezszeZadania\\graplanszowa\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/ignacy/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\gramw\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -38,6 +38,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -59,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
