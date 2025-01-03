@@ -4,12 +4,14 @@ using graplanszowa;
 using game;
 using board;
 using player;
+using enemy;
+using System.Security.Cryptography.X509Certificates;
 
 namespace graplanszowa;
 
 class Program {
     static void Main(string[] args) {
-        Board board = new Board(150);
-        board.GenerateSpecialFields();
+
+        Game.GameStart();
     }
 }
