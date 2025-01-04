@@ -8,7 +8,10 @@ namespace game;
 
 
 class Game {
+    //TUTAJ!!!!!!!!
     public static void GameStart() {
+
+
         Console.WriteLine("Welcome to GoardSameBimulator! \nIn this game you can choose size of the board! \nThis game can handle up to 4 players");
         
         int playersAmount;
@@ -64,13 +67,24 @@ class Game {
     Console.WriteLine("Game setup complete!");
     Console.WriteLine("Your characters: ");
     players.ForEach(player => Console.WriteLine($"{player.PlayerName} - {player.playerClass.GetType().Name}"));
+    
     Board board = new Board(boardSize);
+    board.GenerateFields();
+    
     PlayerTurn();
     }
 
-
+    
 
     static void PlayerTurn() {
+
+        // Gracz n rzuca kostką i przemieszcz sie o x pól
+        // Gra sprawdza czy Gracz n jest na specjanym polu.
+        // Jezeli tak, to walczy z przeciwnikiem (przeciwnik atakuje, po czym gracz atakuje, dopóki jeden z nich nie umrze.)
+        // Jeżeli przeciwnik został pokonany Gracz n dostaje punkt.
+        // Jeżeli Gracz n przegrał bitwę, odejmowany jest punkt.
+        // Gracz n po turze dostaje także +1 do many.
+
         bool gameStarted = true;
         
         while (!gameStarted) {

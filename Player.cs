@@ -58,7 +58,6 @@ public class Healer : InterfacePlayerClass {
     }
 
     public void Heal() {
-        // Tutaj jest dużo do zmiany
         if(Health <= 5 && Mana == 15) {
             Console.WriteLine("You are low on health! But you used your mana to heal you back to 15 health!");
             Mana -= 15;
