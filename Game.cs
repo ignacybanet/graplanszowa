@@ -31,12 +31,12 @@ class Game {
 
     int boardSize;
     do {
-        Console.WriteLine("Enter size of board (number between 8 and 1000): ");
+        Console.WriteLine("Enter size of board (number between 100 and 1000): ");
         boardSize = Convert.ToInt32(Console.ReadLine());
-        if (boardSize < 8 || boardSize > 1000) {
-            Console.WriteLine("Invalid board size. Please choose a number between 8 and 1000.");
+        if (boardSize < 100 || boardSize > 1000) {
+            Console.WriteLine("Invalid board size. Please choose a number between 100 and 1000.");
         }
-    } while (boardSize < 8 || boardSize > 1000);
+    } while (boardSize < 100 || boardSize > 1000);
 
     
 
@@ -45,25 +45,29 @@ class Game {
         string playerName = Console.ReadLine();
 
         int playerClass;
+
         do {
             Console.WriteLine($"Choose a character class:\n 1: Warrior\n 2: Wizard\n 3: Healer");
             playerClass = Convert.ToInt32(Console.ReadLine());
+
             switch (playerClass) {
                 case 1:
                     Warrior warrior = new Warrior();
                     players.Add(new Player(playerName, warrior));
-                    
                     break;
+
                 case 2:
                     Wizard wizard = new Wizard();
                     players.Add(new Player(playerName, wizard));
                     break;
+
                 case 3:
                     Healer healer = new Healer();
                     players.Add(new Player(playerName, healer));
                     break;
+
                 default:
-                    Console.WriteLine("Invalid character class. Please choose a number between 1 and 3.");
+                    Console.WriteLine("Invalid homelander class. Please choose a number between 1 and 3.");
                     playerClass = 0; 
                     break;
             }
@@ -97,30 +101,100 @@ class Game {
         if (board.EnemyFields.ContainsKey(player.PlayerPosition)) {
             Console.WriteLine($"Player {player.PlayerName} just encountered an enemy!");
             Console.WriteLine("Now they can decide whether they want to fight or flight! (at a price)");
+            string? userchoice;
             int choice;
+
             do {
+                
                 Console.WriteLine("1: Fight\n2: Run");
-                choice = Convert.ToInt32( Console.ReadLine() );
+                
+                userchoice = Console.ReadLine();
+                
+                try {
+                    choice = Int32.Parse(userchoice);
+                } 
+                catch(FormatException) {
+                    choice = 0;
+                }
+
+                
             } while(choice < 1 || choice > 2);
 
 
             if (choice == 1) {
                 Enemy enemy = board.EnemyFields[player.PlayerPosition];
-                Console.WriteLine($"The fight begins! Your enemy is {enemy}");
+                Console.WriteLine($"The fight begins! Your enemy is {enemy.EnemyName}");
+
+                bool battle = true;
+                // int playerDmg = player.playerClass.Damage;
+                // int playerHP = player.playerClass.Health;
+                // int playerMana = player.playerClass.Mana;
+                int enemyDmg = enemy.EnemyDamage;
+                int enemyHp = enemy.EnemyHealth;
+                
+                while(battle) {
+                    Console.WriteLine($"{player.PlayerName}: {player.playerClass.Health} HP\n{enemy.EnemyName}: {enemyHp} HP");
+
+                    player.playerClass.SpecialAction();
+
+                    Console.WriteLine($"{player.PlayerName} strikes and deals {player.playerClass.Damage} dmg!");
+                    enemyHp -= player.playerClass.Damage;
+
+                    Console.WriteLine("Press enter to continue...");
+                    Console.ReadLine();
+
+                    if(enemyHp <= 0) {
+                        Console.WriteLine($"Player {player.PlayerName} has won the battle!\n +5 points!");
+                        player.UpdateScore(5);
+                        battle = false;
+
+                        break;
+                    }
+
+                    Console.WriteLine($"{enemy.EnemyName} strikes back and deals {enemyDmg} dmg!");
+                    player.playerClass.Health -= enemyDmg;
+
+
+                    if (player.playerClass.Mana < player.playerClass.MaxMana) {
+                        player.playerClass.Mana += 1;
+                    }
+
+                    if (player.playerClass.Health <= 0) {
+                        Console.WriteLine($"Player {player.PlayerName} lost the battle and lost 3 points!");
+                        player.UpdateScore(-3);
+                        battle = false;
+
+                        player.playerClass.Health = player.playerClass.MaxHealth;
+
+                        break;
+                    }
+
+
+                }
+                
+                
+
             }
 
             else if(choice == 2) {
                 Console.WriteLine($"{player.PlayerName} decided to flee the battle! What a coward!\nThey are now 3 fields behind!");
                 player.PlayerPosition -= 3;
                 Console.WriteLine($"{player.PlayerName} is now on field {player.PlayerPosition}!");
-            }
+                Console.WriteLine("Press enter to continue...");
+                Console.ReadLine();
 
-            else {
-                Console.WriteLine("somehow you broke it idiot");
-                EnemyFieldChecker(player, board);
             }
         }
     }
+
+    static void ShowResults(Player winner) {
+        Console.WriteLine($"\nCongratulations! Player {winner.PlayerName} won the game with {winner.PlayerScore} points!");
+        Console.WriteLine("How all players did:");
+        foreach(Player player in players) {
+            Console.WriteLine($"{player.PlayerName}: {player.PlayerScore} points. Finished on {player.PlayerPosition}th field.");
+        }
+    }
+
     
     static void PlayerTurn() {
 
@@ -134,34 +208,38 @@ class Game {
 
         bool gameStarted = true;
         
-        
-
-
         while (gameStarted) {
             for(int i = 0 ; i < players.Count() ; i++) {
                 Player currentPlayer = players[i];
                 Random rnd = new Random();
+
+                Console.WriteLine($"{currentPlayer.playerClass.Health} HP\n{currentPlayer.playerClass.Mana} Mana");
 
                 Console.WriteLine($"Player {currentPlayer.PlayerName} rolls the dice!");
 
                 int diceRoll = rnd.Next(1,7);
                 
                 Console.WriteLine($"Player {currentPlayer.PlayerName } rolled {diceRoll}!");
+
                 currentPlayer.MovePlayer(diceRoll);
-                if(currentPlayer.PlayerPosition > 100) {currentPlayer.PlayerPosition = 100;}
                 Console.WriteLine($"{currentPlayer.PlayerName} is now on field {currentPlayer.PlayerPosition}!");
 
-                
 
                 if(currentPlayer.PlayerPosition >= board.BoardSize) {
-                    Console.WriteLine($"Congratulations {currentPlayer.PlayerName}! You won with {currentPlayer.PlayerScore} points");
+                    currentPlayer.PlayerPosition = board.BoardSize;
                     gameStarted = false;
                     i = players.Count();
-                    // ShowResults();
+                    ShowResults(currentPlayer);
                 }
 
+                if(currentPlayer.playerClass.ClassName != "Warrior" && currentPlayer.playerClass.Mana < currentPlayer.playerClass.MaxMana) {currentPlayer.playerClass.Mana += 1;}
+                if(currentPlayer.playerClass.Health < currentPlayer.playerClass.MaxHealth) {currentPlayer.playerClass.Health += 1;}
+                
                 SpecialFieldChecker(currentPlayer, board);
                 EnemyFieldChecker(currentPlayer, board);
+
+                Console.WriteLine("Press enter to continue...");
+                Console.ReadLine();
             }
             
             

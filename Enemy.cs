@@ -7,9 +7,9 @@ namespace enemy;
 public class Enemy { 
 
     
-    string EnemyName;
-    int EnemyHealth;
-    int EnemyDamage;
+    public string EnemyName;
+    public int EnemyHealth;
+    public int EnemyDamage;
 
     public Enemy(string name, int dmg, int hp) {
         EnemyName = name;

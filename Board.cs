@@ -34,13 +34,13 @@ class Board{
                 i--;
             } else {
                 if(randomMonster == 1) {
-                    EnemyFields.Add(randomField, new Enemy("Skelton", 3, 15));
+                    EnemyFields.Add(randomField, new Enemy("Skelton", 4, 20));
                 }
                 else if(randomMonster == 2) {
-                    EnemyFields.Add(randomField, new Enemy("Zombie", 5, 25));
+                    EnemyFields.Add(randomField, new Enemy("Zombie", 3, 30));
                 }
                 else if(randomMonster == 3) {
-                    EnemyFields.Add(randomField, new Enemy("Slime", 2, 10));
+                    EnemyFields.Add(randomField, new Enemy("Slime", 2, 40));
                 }
             }
 
