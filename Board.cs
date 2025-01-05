@@ -27,7 +27,7 @@ class Board{
         int randomMonster;
 
         for(int i = 0; i != EFamount; i++) {
-            randomField = rnd.Next(1, BoardSize);
+            randomField = rnd.Next(4, BoardSize);
             randomMonster = rnd.Next(1,4);
 
             if(EnemyFields.ContainsKey(randomField)) {

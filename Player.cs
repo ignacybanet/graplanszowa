@@ -10,6 +10,8 @@ public interface InterfacePlayerClass {
     public int Damage { get; set; }
     public int Mana { get; set; }
     public int Stamina { get; set; }
+
+    public void SpecialAction () {}
 }
 
 public class Warrior : InterfacePlayerClass {
@@ -25,7 +27,9 @@ public class Warrior : InterfacePlayerClass {
         Mana = 0;
     }
 
-    // TODO: Dodać jakąś specjalną moc czy cos
+    public void SpecialAction() {
+
+    }
 }
 
 public class Wizard : InterfacePlayerClass {
@@ -41,7 +45,9 @@ public class Wizard : InterfacePlayerClass {
         Mana = 25;
     }
 
-    // TODO: Dodać jakąś moc znowu
+    public void SpecialAction() {
+        
+    }
 }
 
 public class Healer : InterfacePlayerClass {
@@ -57,8 +63,8 @@ public class Healer : InterfacePlayerClass {
         Mana = 15;
     }
 
-    public void Heal() {
-        if(Health <= 5 && Mana == 15) {
+    public void SpecialAction() {
+        if(Health <= 5 && Mana >= 15) {
             Console.WriteLine("You are low on health! But you used your mana to heal you back to 15 health!");
             Mana -= 15;
             Health = 15;
@@ -83,8 +89,8 @@ class Player {
     }
 
 
-    public void MovePlayer() {
-        //PlayerPosition+=RolledScore;
+    public void MovePlayer(int positionIncrement) {
+        PlayerPosition += positionIncrement;
     }
 
     public void UpdateScore(int score) {
